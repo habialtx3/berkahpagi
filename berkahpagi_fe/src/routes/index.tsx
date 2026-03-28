@@ -5,6 +5,7 @@ import Home from '../pages/Home'
 import Products from '../pages/Products'
 import Vendor from '../pages/Vendor'
 import Staff from '../pages/Staff'
+import Login from '../pages/Login'
 
 export default function AppRoutes() {
     return (
@@ -15,6 +16,7 @@ export default function AppRoutes() {
                     <Route element={<Products />} path='/products' />
                     <Route element={<Vendor />} path='/vendor' />
                     <Route element={<Staff />} path='/staff' />
+                    <Route element={<Login />} path='/login' />
                 </Route>
             </Routes>
         </>
