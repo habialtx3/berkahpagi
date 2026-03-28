@@ -1,4 +1,23 @@
+import { useEffect, useState } from "react"
 export default function Home() {
+
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            const res = await fetch('http://127.0.0.1:8000/api/products', {
+                method: 'GET',
+            })
+
+            const data = await res.json()
+            setProducts(data.data);
+        }
+
+        fetchProducts()
+    }, [])
+
+    console.log(products);
+
     return (
         <>
             {/* TopNavBar Implementation */}
@@ -130,110 +149,35 @@ export default function Home() {
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-surface-container-low">
-                                <tr className="hover:bg-surface-container-low/20 transition-colors">
-                                    <td className="px-8 py-6">
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-12 h-12 rounded-lg bg-accent/30 flex items-center justify-center">
-                                                <span
-                                                    className="material-symbols-outlined text-on-tertiary-container"
-                                                    data-icon="eco"
-                                                >
-                                                    eco
+                                {products.map((product) => (
+                                    <tr className="hover:bg-surface-container-low/20 transition-colors" key={product.id}>
+                                        <td className="px-8 py-6">
+                                            <div className="flex items-center gap-4">
+                                                <div className="w-12 h-12 rounded-lg bg-accent/30 flex items-center justify-center">
+                                                    <span
+                                                        className="material-symbols-outlined text-on-tertiary-container"
+                                                        data-icon="eco"
+                                                    >
+                                                        eco
+                                                    </span>
+                                                </div>
+                                                <span className="font-bold text-xl text-on-surface">
+                                                    {product.name}
                                                 </span>
                                             </div>
-                                            <span className="font-bold text-xl text-on-surface">
-                                                Heirloom Honey
-                                            </span>
-                                        </div>
-                                    </td>
-                                    <td className="px-8 py-6 text-lg text-on-surface-variant">
-                                        Northside Market
-                                    </td>
-                                    <td className="px-8 py-6 text-lg text-on-surface text-center font-bold">
-                                        2
-                                    </td>
-                                    <td className="px-8 py-6 text-lg text-on-surface-variant text-right">
-                                        14:22 PM
-                                    </td>
-                                </tr>
-                                <tr className="hover:bg-surface-container-low/20 transition-colors">
-                                    <td className="px-8 py-6">
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-12 h-12 rounded-lg bg-accent/30 flex items-center justify-center">
-                                                <span
-                                                    className="material-symbols-outlined text-on-tertiary-container"
-                                                    data-icon="egg"
-                                                >
-                                                    egg
-                                                </span>
-                                            </div>
-                                            <span className="font-bold text-xl text-on-surface">
-                                                Pasture Eggs
-                                            </span>
-                                        </div>
-                                    </td>
-                                    <td className="px-8 py-6 text-lg text-on-surface-variant">
-                                        Downtown Deli
-                                    </td>
-                                    <td className="px-8 py-6 text-lg text-on-surface text-center font-bold">
-                                        1
-                                    </td>
-                                    <td className="px-8 py-6 text-lg text-on-surface-variant text-right">
-                                        13:45 PM
-                                    </td>
-                                </tr>
-                                <tr className="hover:bg-surface-container-low/20 transition-colors">
-                                    <td className="px-8 py-6">
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-12 h-12 rounded-lg bg-accent/30 flex items-center justify-center">
-                                                <span
-                                                    className="material-symbols-outlined text-on-tertiary-container"
-                                                    data-icon="potted_plant"
-                                                >
-                                                    potted_plant
-                                                </span>
-                                            </div>
-                                            <span className="font-bold text-xl text-on-surface">
-                                                Organic Kale
-                                            </span>
-                                        </div>
-                                    </td>
-                                    <td className="px-8 py-6 text-lg text-on-surface-variant">
-                                        East End Grocer
-                                    </td>
-                                    <td className="px-8 py-6 text-lg text-on-surface text-center font-bold">
-                                        5
-                                    </td>
-                                    <td className="px-8 py-6 text-lg text-on-surface-variant text-right">
-                                        13:10 PM
-                                    </td>
-                                </tr>
-                                <tr className="hover:bg-surface-container-low/20 transition-colors">
-                                    <td className="px-8 py-6">
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-12 h-12 rounded-lg bg-accent/30 flex items-center justify-center">
-                                                <span
-                                                    className="material-symbols-outlined text-on-tertiary-container"
-                                                    data-icon="water_drop"
-                                                >
-                                                    water_drop
-                                                </span>
-                                            </div>
-                                            <span className="font-bold text-xl text-on-surface">
-                                                Cold Press Oil
-                                            </span>
-                                        </div>
-                                    </td>
-                                    <td className="px-8 py-6 text-lg text-on-surface-variant">
-                                        Downtown Deli
-                                    </td>
-                                    <td className="px-8 py-6 text-lg text-on-surface text-center font-bold">
-                                        3
-                                    </td>
-                                    <td className="px-8 py-6 text-lg text-on-surface-variant text-right">
-                                        12:55 PM
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td className="px-8 py-6 text-lg text-on-surface-variant">
+                                            Northside Market
+                                        </td>
+                                        <td className="px-8 py-6 text-lg text-on-surface text-center font-bold">
+                                            2
+                                        </td>
+                                        <td className="px-8 py-6 text-lg text-on-surface-variant text-right">
+                                            14:22 PM
+                                        </td>
+                                    </tr>
+
+                                ))}
                             </tbody>
                         </table>
                     </div>
