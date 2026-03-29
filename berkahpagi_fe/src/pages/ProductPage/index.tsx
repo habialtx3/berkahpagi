@@ -12,10 +12,6 @@ export default function ProductPage() {
                         status, pricing, and showcase your finest organic offerings.
                     </p>
                 </div>
-                <button className="primary-gradient text-on-primary px-8 py-5 rounded-3xl font-bold text-lg flex items-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-primary/20">
-                    <span className="material-symbols-outlined">add_circle</span>
-                    Add New Product
-                </button>
             </div>
             {/* Filter Chips */}
             <div className="flex gap-4 mb-12 overflow-x-auto pb-2 no-scrollbar">
