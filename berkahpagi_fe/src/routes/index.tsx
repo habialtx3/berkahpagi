@@ -8,6 +8,7 @@ import Login from '../pages/Login'
 import ProductDetails from '../pages/ProductDetails'
 import ProductPage from '../pages/ProductPage'
 import StockPage from '../pages/StockPages'
+import SalesPage from '../pages/SalesPage'
 
 export default function AppRoutes() {
     return (
@@ -19,6 +20,7 @@ export default function AppRoutes() {
                     <Route element={<Vendor />} path='/vendor' />
                     <Route element={<Staff />} path='/staff' />
                     <Route element={<StockPage />} path='/stocks' />
+                    <Route element={<SalesPage />} path='/sales' />
                     <Route element={<ProductDetails />} path='/product/:id' />
                     <Route element={<Login />} path='/login' />
                 </Route>
