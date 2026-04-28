@@ -22,13 +22,13 @@ export default function Navbar() {
                             </a>
                             <a
                                 className="text-[#1e1c03]/60 font-medium hover:scale-105 transition-transform duration-200 ease-out"
-                                href="#"
+                                href="/stocks"
                             >
                                 Stock
                             </a>
                             <a
                                 className="text-[#1e1c03]/60 font-medium hover:scale-105 transition-transform duration-200 ease-out"
-                                href="#"
+                                href="/sales"
                             >
                                 Sales
                             </a>
